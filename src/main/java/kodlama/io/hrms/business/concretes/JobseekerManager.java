@@ -45,5 +45,7 @@ public class JobseekerManager implements JobseekerService{
 		{
 			return new ErrorResult("İlgili Tc ile Kayıtlı üye yok");
 		}
-	}	
+	}
+
+	
 }

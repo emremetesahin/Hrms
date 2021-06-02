@@ -6,4 +6,5 @@ import kodlama.io.hrms.entities.concretes.Jobseeker;
 
 public interface JobseekerDao extends JpaRepository<Jobseeker,Integer> {
 	Boolean existsByNationalityId (String nationalityId);
+	Jobseeker getByEmailAdress(String email);
 }
