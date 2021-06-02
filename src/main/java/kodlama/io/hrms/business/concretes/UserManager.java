@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.UserService;
-import kodlama.io.hrms.core.utilities.DataResult;
-import kodlama.io.hrms.core.utilities.Result;
-import kodlama.io.hrms.core.utilities.SuccessDataResult;
-import kodlama.io.hrms.core.utilities.SuccessResult;
+import kodlama.io.hrms.core.utilities.results.DataResult;
+import kodlama.io.hrms.core.utilities.results.ErrorResult;
+import kodlama.io.hrms.core.utilities.results.Result;
+import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
+import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.dataAccess.abstracts.UserDao;
 import kodlama.io.hrms.entities.concretes.User;
 
@@ -29,8 +30,23 @@ public class UserManager implements UserService{
 
 	@Override
 	public Result add(User user) {
+		user.setActive(false);
 		userDao.save(user);
 		return new SuccessResult("Üye eklendi");
 		
 	}
+
+	@Override
+	public Result existsByEmailAdress(User user) {
+		Boolean result=userDao.existsByEmailAdress(user.getEmailAdress());
+		if(result)
+		{
+			return new SuccessResult("e posta ile kayıt bulundu");
+		}
+		else
+		{
+			return new ErrorResult("E posta kaydı bulunamadı");
+		}
+	}
+
 }

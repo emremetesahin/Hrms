@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import kodlama.io.hrms.entities.concretes.Jobseeker;
 
 public interface JobseekerDao extends JpaRepository<Jobseeker,Integer> {
-
+	Boolean existsByNationalityId (String nationalityId);
 }

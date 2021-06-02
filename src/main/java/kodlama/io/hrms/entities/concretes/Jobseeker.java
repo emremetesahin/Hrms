@@ -1,26 +1,22 @@
 package kodlama.io.hrms.entities.concretes;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@EqualsAndHashCode(callSuper = false)
 @Table(name="jobseekers")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Jobseeker {
-	
-	@Id
-	@Column(name="user_id")
-	private int userId;
+public class Jobseeker extends User {
+
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -32,12 +28,6 @@ public class Jobseeker {
 	private String nationalityId;
 	
 	@Column(name="year_of_birth")
-	private Date yearOfBirth;
-	
-	@Column(name="created_date")
-	private Date createdDate;
-	
-	@Column(name="active")
-	private Boolean active;
+	private int yearOfBirth;
 
 }

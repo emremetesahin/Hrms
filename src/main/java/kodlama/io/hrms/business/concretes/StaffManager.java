@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.StaffService;
-import kodlama.io.hrms.core.utilities.DataResult;
-import kodlama.io.hrms.core.utilities.Result;
-import kodlama.io.hrms.core.utilities.SuccessDataResult;
-import kodlama.io.hrms.core.utilities.SuccessResult;
+import kodlama.io.hrms.core.utilities.results.DataResult;
+import kodlama.io.hrms.core.utilities.results.Result;
+import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
+import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.dataAccess.abstracts.StaffDao;
 import kodlama.io.hrms.entities.concretes.Staff;
 

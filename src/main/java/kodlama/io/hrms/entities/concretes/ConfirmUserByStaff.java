@@ -1,42 +1,34 @@
 package kodlama.io.hrms.entities.concretes;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "users")
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
-public  class User {
-
+@Table(name="confirm_user_by_staff")
+public class ConfirmUserByStaff {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id")
+	@Column(name="id")
 	private int id;
-
-	@Column(name = "email_adress")
-	private String emailAdress;
-
-	@Column(name = "password")
-	private String password;
-
-	@Column(name = "active")
-	private Boolean active;
 	
-	@Column(name="created_date")
-	private Date createdDate;
+	@Column(name="employer_id")
+	private int userId;
+	
+	@Column(name="staff_id")
+	private int staffId;
+
+	@Column(name="is_confirmed")
+	private Boolean isConfirmed;
+
 }
