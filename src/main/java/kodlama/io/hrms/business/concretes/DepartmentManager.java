@@ -1,3 +1,4 @@
+
 package kodlama.io.hrms.business.concretes;
 
 import java.util.List;
@@ -31,6 +32,12 @@ public class DepartmentManager implements DepartmentService{
 	public Result add(Department department) {
 		this.departmentDao.save(department);
 		return new SuccessResult("Departman eklendi");
+	}
+
+	@Override 
+	public Result update(Department department) {
+		this.departmentDao.save(department);
+		return new SuccessResult("Güncellendi");
 	}
 	
 }

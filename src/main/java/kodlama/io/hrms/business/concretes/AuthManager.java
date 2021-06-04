@@ -44,7 +44,6 @@ public class AuthManager implements AuthService {
 			System.out.println(jobseeker);
 			this.jobseekerService.add(jobseeker);
 			this.mailConfirmService.addCode(jobseeker);
-			
 			return new SuccessResult("Sisteme kayıt başarılı. Lütfen e postanızı doğrulayın");
 		} else {
 			return result;

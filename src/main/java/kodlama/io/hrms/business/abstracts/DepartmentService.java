@@ -9,4 +9,5 @@ import kodlama.io.hrms.entities.concretes.Department;
 public interface DepartmentService {
 	DataResult<List<Department>>getAll();
 	Result add(Department department);
+	public Result update(Department department);
 }

@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,18 +26,28 @@ public class MailVeritification {
 	@Column(name = "id")
 	private int id;
 	
+	@NotNull
+	@NotBlank
 	@Column(name = "user_id")
 	private int userId;
 	
+	@NotNull
+	@NotBlank
 	@Column(name = "email")
 	private String email;
 	
+	@NotNull
+	@NotBlank
 	@Column(name = "code")
 	private String code;
 	
+	@NotNull
+	@NotBlank
 	@Column(name = "code_expiration_date")
 	private LocalDateTime codeExpirationDate;
 
+	@NotNull
+	@NotBlank
 	@Column(name = "is_confirmed")
 	private boolean isConfirmed;
 

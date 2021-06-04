@@ -11,5 +11,6 @@ public class Main {
 		System.out.println(RandomStringGenerator.Generate(5));
 		LocalDateTime time=LocalDateTime.now().plusDays(1);
 		System.out.println(time);
-		}
+
+}
 }

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import kodlama.io.hrms.entities.concretes.ConfirmUserByStaff;
 
-public interface ConfirmByStaffDao  extends JpaRepository<ConfirmUserByStaff,Integer>{
+public interface ConfirmUserByStaffDao  extends JpaRepository<ConfirmUserByStaff,Integer>{
 
 }
