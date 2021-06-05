@@ -9,7 +9,7 @@ import kodlama.io.hrms.entities.concretes.User;
 public interface UserService {
 	DataResult<List<User>>getAll();
 	Result add(User user);
-	Result existsByEmailAdress(User user);
+	Result existsByEmailAdress(String email);
 	DataResult<User>getByEmail(String email);
 
 }

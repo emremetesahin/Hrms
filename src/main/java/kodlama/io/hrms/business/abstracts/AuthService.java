@@ -7,5 +7,7 @@ import kodlama.io.hrms.entities.concretes.Jobseeker;
 public interface AuthService {
 	Result register(Jobseeker jobseeker);
 	Result register(Employer employer);
+	Result login(Jobseeker jobseeker);
+	Result login(Employer employer);
 	
 }

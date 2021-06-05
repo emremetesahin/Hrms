@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,7 @@ import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.ErrorDataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.Jobseeker;
+import kodlama.io.hrms.entities.concretes.dtos.JobseekerWithVeritificationsDto;
  
 @RestController
 @RequestMapping("/api/jobseekers/")
@@ -43,6 +45,12 @@ public class JobseekersController {
 	public ResponseEntity<Result> add(@Valid @RequestBody Jobseeker jobseeker)
 	{
 		return ResponseEntity.ok(jobSeekerService.add(jobseeker));
+	}
+	@GetMapping("getVeritifications")
+	public ResponseEntity<DataResult<JobseekerWithVeritificationsDto>>getVeritifications
+	(@RequestParam int userId)
+	{
+		return ResponseEntity.ok(jobSeekerService.getVeritificationValue(userId));
 	}
 	
 

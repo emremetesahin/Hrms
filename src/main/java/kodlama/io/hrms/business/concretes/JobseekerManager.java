@@ -13,6 +13,7 @@ import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.dataAccess.abstracts.JobseekerDao;
 import kodlama.io.hrms.entities.concretes.Jobseeker;
+import kodlama.io.hrms.entities.concretes.dtos.JobseekerWithVeritificationsDto;
 
 @Service
 public class JobseekerManager implements JobseekerService{
@@ -45,6 +46,12 @@ public class JobseekerManager implements JobseekerService{
 		{
 			return new ErrorResult("İlgili Tc ile Kayıtlı üye yok");
 		}
+	}
+	@Override
+	public DataResult<JobseekerWithVeritificationsDto> getVeritificationValue(int userId)
+	{
+		return null;
+		//return new SuccessDataResult<JobseekerWithVeritificationsDto>(this.jobseekerDao.getVeritificationsValue(userId));
 	}
 
 	

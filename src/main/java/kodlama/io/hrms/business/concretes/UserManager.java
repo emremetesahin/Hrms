@@ -36,8 +36,8 @@ public class UserManager implements UserService{
 	}
 
 	@Override
-	public Result existsByEmailAdress(User user) {
-		Boolean result=userDao.existsByEmailAdress(user.getEmailAdress());
+	public Result existsByEmailAdress(String email) {
+		Boolean result=userDao.existsByEmailAdress(email);
 		if(result)
 		{
 			return new SuccessResult("e posta ile kayıt bulundu");
