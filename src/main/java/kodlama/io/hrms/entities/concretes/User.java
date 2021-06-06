@@ -25,8 +25,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "users")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","veritifications"})
 public  class User {
@@ -52,7 +52,5 @@ public  class User {
 	
 	@Column(name="created_date")
 	private LocalDateTime createdDate=LocalDateTime.now();
-	
-//	@OneToMany(mappedBy="user")
-//	private List<MailVeritification> veritifications;
+
 }

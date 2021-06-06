@@ -2,6 +2,7 @@ package kodlama.io.hrms.entities.concretes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
+@PrimaryKeyJoinColumn(name = "user_id",referencedColumnName = "user_id")
 @Table(name="jobseekers")
 @AllArgsConstructor
 @NoArgsConstructor
