@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import kodlama.io.hrms.business.abstracts.JobAdversimentService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
-import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.entities.concretes.JobAdversiment;
 import kodlama.io.hrms.entities.concretes.dtos.JobAdversimentGetDto;
 

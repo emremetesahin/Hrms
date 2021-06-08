@@ -25,10 +25,7 @@ public class UniversityFaculty {
 	
 	@Column(name = "name")
 	private String name;
-	
-	@Column(name = "type")
-	private int type;
-	
+
 	@Column(name = "active")
 	private Boolean active=true;
 }

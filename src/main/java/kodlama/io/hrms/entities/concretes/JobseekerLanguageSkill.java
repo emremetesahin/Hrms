@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +30,7 @@ public class JobseekerLanguageSkill {
 	@Column(name = "language_id")
 	private int languageId;
 	
+	@Max(value = 5)
 	@Column(name = "skill_level")
 	private int skillLevel;
 }
