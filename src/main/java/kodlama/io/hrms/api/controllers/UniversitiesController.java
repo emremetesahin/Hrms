@@ -29,9 +29,17 @@ public class UniversitiesController {
 	{
 		return this.universityService.add(university);
 	}
+	
 	@GetMapping("getall")
 	public DataResult<List<University>>getAll()
 	{
 		return this.universityService.getAll();
 	}
+	
+	@GetMapping("getbyid")
+	public DataResult<University> getById(int id)
+	{
+		return this.universityService.getById(id);
+	}
+
 }

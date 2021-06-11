@@ -15,7 +15,7 @@ import kodlama.io.hrms.business.abstracts.JobAdversimentService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.JobAdversiment;
-import kodlama.io.hrms.entities.concretes.dtos.JobAdversimentGetDto;
+import kodlama.io.hrms.entities.concretes.dtos.JobAdversimentDetailDto;
 
 @RestController
 @RequestMapping("/api/jobadversiments/")
@@ -28,13 +28,13 @@ public class JobAdversimentsController {
 	}
 	
 	@GetMapping(value = "getactiveandcanbeappliedtrue")
-	public DataResult<List<JobAdversimentGetDto>> getActiveAndCanBeAppliedTrue()
+	public DataResult<List<JobAdversimentDetailDto>> getActiveAndCanBeAppliedTrue()
 	{
 		return jobAdversimentService.getActiveAndCanBeAppliedTrue();
 	}
 	
 	@GetMapping(value = "getactiveandcanbeappliedtrueorderbydate")
-	public DataResult<List<JobAdversimentGetDto>> getActiveAndCanBeAppliedTrueOrderByDate()
+	public DataResult<List<JobAdversimentDetailDto>> getActiveAndCanBeAppliedTrueOrderByDate()
 	{
 		return jobAdversimentService.getActiveAndCanBeAppliedTrueOrderByDate();
 	}
@@ -46,7 +46,7 @@ public class JobAdversimentsController {
 	}
 	
 	@GetMapping(value="getbyemployerid")
-	public DataResult<List<JobAdversimentGetDto>> getByEmployerIdAndActiveAndCanBeAppliedTrue(int employerId)
+	public DataResult<List<JobAdversimentDetailDto>> getByEmployerIdAndActiveAndCanBeAppliedTrue(int employerId)
 	{
 		return this.jobAdversimentService.getByEmployerIdAndActiveAndCanBeAppliedTrue(employerId);
 	}

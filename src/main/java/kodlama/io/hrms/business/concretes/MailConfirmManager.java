@@ -78,7 +78,7 @@ public class MailConfirmManager implements MailConfirmService {
 	String code=RandomStringGenerator.Generate(5);
 	LocalDateTime date=LocalDateTime.now().plusDays(1);
 	String text="Üyeliğinizi aktifleştirmek için "+date+" Tarihine kadar "+code+" Kodunu giriniz";
-	MailVeritification mailVeritification=new MailVeritification(0,user.getId(),user.getEmailAdress(),code,date,false);
+	MailVeritification mailVeritification=new MailVeritification(0,user.getUserId(),user.getEmailAdress(),code,date,false);
 	mailVeritificationDao.save(mailVeritification);
 	//mailService.sendMail(user.getEmailAdress(),text);
 	return new SuccessResult("Kod üretildi "+user.getEmailAdress()+" mail gönderildi");

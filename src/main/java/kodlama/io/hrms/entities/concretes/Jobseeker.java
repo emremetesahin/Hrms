@@ -7,6 +7,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -37,8 +38,10 @@ public class Jobseeker extends User {
 	private String nationalityId;
 	
 	
-	
 	@Column(name="year_of_birth")
 	private int yearOfBirth;
+	
+	@Column(name="picture_url")
+	private String pictureUrl;
 	
 }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobAdversimentGetDto {
+public class JobAdversimentDetailDto {
 	private int AdversimentId;
 	private String companyName;
 	private String departmentName;

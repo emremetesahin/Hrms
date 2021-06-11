@@ -9,5 +9,6 @@ import kodlama.io.hrms.entities.concretes.University;
 public interface UniversityService {
 	Result add(University university);
 	DataResult<List<University>>getAll();
+	DataResult<University>getById(int id);
 
 }

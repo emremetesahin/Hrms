@@ -13,6 +13,8 @@ import kodlama.io.hrms.business.abstracts.JobseekerCvService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.JobseekerCv;
+import kodlama.io.hrms.entities.concretes.dtos.JobseekerCvAddDto;
+import kodlama.io.hrms.entities.concretes.dtos.JobseekerCvDetailsDto;
 
 @RestController
 @RequestMapping("/api/jobseekercvs/")
@@ -25,12 +27,22 @@ public class JobseekerCvsController {
 	}
 
 	@PostMapping("add")
-	public Result add(@RequestBody JobseekerCv jobseekerCv) {
-		return this.JobseekerCvService.add(jobseekerCv);
+	public Result add(@RequestBody JobseekerCvAddDto jobseekerCvAddDto) {
+		return this.JobseekerCvService.add(jobseekerCvAddDto);
 	}
 
 	@GetMapping("getall")
 	public DataResult<List<JobseekerCv>> getAll() {
 		return this.JobseekerCvService.getAll();
+	}
+
+	@GetMapping("getcvdetails")
+	public DataResult<List<JobseekerCvDetailsDto>> getCvDetails() {
+		return this.JobseekerCvService.getCvDetails();
+	}
+
+	@GetMapping("getcvdetailsbyjobseekerid")
+	public DataResult<List<JobseekerCvDetailsDto>> getByJobseekerId(int jobseekerId) {
+		return this.JobseekerCvService.getByJobseekerId(jobseekerId);
 	}
 }

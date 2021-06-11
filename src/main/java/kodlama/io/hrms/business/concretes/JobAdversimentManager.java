@@ -12,7 +12,7 @@ import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.dataAccess.abstracts.JobAdversimentDao;
 import kodlama.io.hrms.entities.concretes.JobAdversiment;
-import kodlama.io.hrms.entities.concretes.dtos.JobAdversimentGetDto;
+import kodlama.io.hrms.entities.concretes.dtos.JobAdversimentDetailDto;
 
 @Service
 public class JobAdversimentManager implements JobAdversimentService {
@@ -30,20 +30,20 @@ public class JobAdversimentManager implements JobAdversimentService {
 	}
 
 	@Override
-	public DataResult<List<JobAdversimentGetDto>> getActiveAndCanBeAppliedTrue() {
-		return new SuccessDataResult<List<JobAdversimentGetDto>>(
+	public DataResult<List<JobAdversimentDetailDto>> getActiveAndCanBeAppliedTrue() {
+		return new SuccessDataResult<List<JobAdversimentDetailDto>>(
 				this.jobAdversimentDao.findByActiveAndCanBeAppliedTrue(), "Data Listelendi");
 	}
 
 	@Override
-	public DataResult<List<JobAdversimentGetDto>> getActiveAndCanBeAppliedTrueOrderByDate() {
-		return new SuccessDataResult<List<JobAdversimentGetDto>>(
+	public DataResult<List<JobAdversimentDetailDto>> getActiveAndCanBeAppliedTrueOrderByDate() {
+		return new SuccessDataResult<List<JobAdversimentDetailDto>>(
 				this.jobAdversimentDao.findByActiveAndCanBeAppliedTrueOrderByDate(), "Data Listelendi");
 	}
 
 	@Override
-	public DataResult<List<JobAdversimentGetDto>> getByEmployerIdAndActiveAndCanBeAppliedTrue(int employerId) {
-		return new SuccessDataResult<List<JobAdversimentGetDto>>(jobAdversimentDao.findByActiveTrueAndCanBeAppliedTrueAndEmployerId(employerId),"Data Listelendi");
+	public DataResult<List<JobAdversimentDetailDto>> getByEmployerIdAndActiveAndCanBeAppliedTrue(int employerId) {
+		return new SuccessDataResult<List<JobAdversimentDetailDto>>(jobAdversimentDao.findByActiveTrueAndCanBeAppliedTrueAndEmployerId(employerId),"Data Listelendi");
 	}
 
 	@Override

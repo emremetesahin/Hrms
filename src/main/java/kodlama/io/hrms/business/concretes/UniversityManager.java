@@ -34,4 +34,10 @@ public class UniversityManager implements UniversityService {
 	public DataResult<List<University>> getAll() {
 		return new SuccessDataResult<List<University>>(this.universityDao.findAll(),Messages.DataListed);
 	}
+
+	@Override
+	public DataResult<University> getById(int id) {
+		return new SuccessDataResult<University>(this.universityDao.findById(id));
+		//return new SuccessDataResult<University>(this.universityDao.findById(id),Messages.DataListed);
+	}
 }

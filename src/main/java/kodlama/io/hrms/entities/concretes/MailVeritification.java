@@ -53,7 +53,4 @@ public class MailVeritification {
 	@Column(name = "is_confirmed")
 	private boolean isConfirmed;
 	
-//	@ManyToOne()
-//	@JoinColumn(name="user_id")
-//	private User user;
 }

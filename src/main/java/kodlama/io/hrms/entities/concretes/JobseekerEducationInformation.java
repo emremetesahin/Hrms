@@ -7,10 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -25,16 +29,27 @@ public class JobseekerEducationInformation {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "cv_id")
-	private int cvId;
+//	@Column(name = "cv_id")
+//	private int cvId;
 	
-	@Column(name = "section_id")
-	private int sectionId;
+//	@Column(name = "section_id")
+//	private int sectionId;
 	
 	@Column(name = "school_start_date")
 	private LocalDateTime schoolStartDate;
 	
 	@Column(name = "school_end_date")
 	private LocalDateTime schoolEndDate;
+	
+	//Join Columns
+	
+	@ManyToOne()
+	@JoinColumn(name = "cv_id")
+	@Getter(value = AccessLevel.PRIVATE)
+	private JobseekerCv jobseekerCv;
+	
+	@ManyToOne()
+	@JoinColumn(name = "section_id")
+	private UniversitySection section;
 
 }
