@@ -13,10 +13,15 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.annotation.CreatedDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -37,13 +42,18 @@ public class Department {
 	@NotNull(message = "Boş bırakılamaz")
 	private String name;
 	
+	@JsonIgnore
+	@CreatedDate
 	@Column(name="created_date")
 	private LocalDateTime createdDate=LocalDateTime.now();
 	
-	@Column(name="active")
+	@JsonIgnore
+	@Column(name="active",columnDefinition = "boolean default true")
 	private Boolean active=true;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "department")
 	private List<JobAdversiment> jobAdversiments;
+	
 
 }

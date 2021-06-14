@@ -1,5 +1,6 @@
 package kodlama.io.hrms.entities.concretes;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -9,13 +10,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @Entity
@@ -35,17 +40,17 @@ public class JobseekerEducationInformation {
 //	@Column(name = "section_id")
 //	private int sectionId;
 	
+	
 	@Column(name = "school_start_date")
-	private LocalDateTime schoolStartDate;
+	private LocalDate schoolStartDate;
 	
 	@Column(name = "school_end_date")
-	private LocalDateTime schoolEndDate;
+	private LocalDate schoolEndDate;
 	
 	//Join Columns
 	
 	@ManyToOne()
 	@JoinColumn(name = "cv_id")
-	@Getter(value = AccessLevel.PRIVATE)
 	private JobseekerCv jobseekerCv;
 	
 	@ManyToOne()

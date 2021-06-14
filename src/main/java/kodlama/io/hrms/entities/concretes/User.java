@@ -16,11 +16,14 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "users")
@@ -38,7 +41,7 @@ public  class User {
 
 	@NotBlank
 	@NotNull
-	@Email(message = "Mail Formatı Hatalı")
+	@Email(message = "Mail Formatı Hatalı") 
 	@Column(name = "email_adress")
 	private String emailAdress;
 
@@ -47,9 +50,11 @@ public  class User {
 	@Column(name = "password")
 	private String password;
 
+	@JsonIgnore
 	@Column(name = "active")
 	private Boolean active=false;
 	
+	@JsonIgnore
 	@Column(name="created_date")
 	private LocalDateTime createdDate=LocalDateTime.now();
 

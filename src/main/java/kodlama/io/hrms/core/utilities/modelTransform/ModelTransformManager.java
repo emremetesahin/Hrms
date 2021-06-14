@@ -21,7 +21,7 @@ public class ModelTransformManager implements ModelTransformService {
 	}
 
 	@Override
-	public <S, D> List<D> getEntityToDto(List<S> sourceData, Class<D> dto) {
+	public <S, D> List<D> getEntityToDtoList(List<S> sourceData, Class<D> dto) {
 		return sourceData.stream().map(data -> modelMapper.map(data, dto)).collect(Collectors.toList());
 
 	}
@@ -31,5 +31,10 @@ public class ModelTransformManager implements ModelTransformService {
 	public <D> Object postEntityToDto(Object sourceDto,Class<D>targetClass) {
 		return modelMapper.map(sourceDto, targetClass);
 		
+	}
+
+	@Override
+	public <S, D> D getEntityToDto(S sourceData, Class<D> dto) {
+		return modelMapper.map(sourceData, dto);
 	}
 }

@@ -45,4 +45,9 @@ public class JobseekerCvsController {
 	public DataResult<List<JobseekerCvDetailsDto>> getByJobseekerId(int jobseekerId) {
 		return this.JobseekerCvService.getByJobseekerId(jobseekerId);
 	}
+	@GetMapping("getbyid")
+	public DataResult<JobseekerCvDetailsDto> getById(int cvId) {
+		return this.JobseekerCvService.getById(cvId);
+	}
+
 }

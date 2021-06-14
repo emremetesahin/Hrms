@@ -12,12 +12,15 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -40,11 +43,13 @@ public class UniversityFaculty {
 	@Column(name = "name")
 	private String name;
 
+	@JsonIgnore
 	@Column(name = "active")
 	private Boolean active=true;
 	
 	//Join Columns
 	@ManyToOne
+	@Getter(value = AccessLevel.PRIVATE)
 	@JoinColumn(name = "university_id")
 	private University university;
 	

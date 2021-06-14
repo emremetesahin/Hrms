@@ -43,6 +43,7 @@ public class Employer extends User  {
 	@Column(name="web_adress")
 	private String webAdress;
 	
+	
 	@OneToMany(mappedBy = "employer")
 	private List<JobAdversiment> jobAdversiments;
 

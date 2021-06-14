@@ -11,5 +11,7 @@ import kodlama.io.hrms.entities.concretes.dtos.JobseekerCvDetailsDto;
 public interface JobseekerCvDao extends JpaRepository<JobseekerCv,Integer> {
 	
 	List<JobseekerCv> getByJobseekerUserId(int jobseekerId);
+	JobseekerCv getById(int cvId);
+
 }
 

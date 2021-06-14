@@ -44,7 +44,6 @@ public class JobseekerLanguageSkill {
 	private Language language;
 	
 	@ManyToOne()
-	@Getter(value = AccessLevel.PRIVATE)
 	@JoinColumn(name="cv_id")
 	private JobseekerCv jobseekerCv;
 	

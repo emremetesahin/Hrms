@@ -13,4 +13,5 @@ public interface JobseekerCvService {
 	DataResult<List<JobseekerCv>>getAll();
 	DataResult<List<JobseekerCvDetailsDto>>getCvDetails();
 	DataResult<List<JobseekerCvDetailsDto>>getByJobseekerId(int jobseekerId);
+	DataResult<JobseekerCvDetailsDto>getById(int cvId);
 }

@@ -23,12 +23,10 @@ import kodlama.io.hrms.entities.concretes.dtos.JobseekerCvDetailsDto;
 public class JobseekerCvManager implements JobseekerCvService {
 	private JobseekerCvDao jobseekerCvDao;
 	private ModelTransformService modelTransformService;
-	private ModelMapper modelMapper;
 
 	@Autowired
-	public JobseekerCvManager(JobseekerCvDao jobseekerCvDao,ModelTransformService modelTransformService,ModelMapper modelMapper) {
+	public JobseekerCvManager(JobseekerCvDao jobseekerCvDao,ModelTransformService modelTransformService) {
 		this.jobseekerCvDao = jobseekerCvDao;
-		this.modelMapper=modelMapper;
 		this.modelTransformService=modelTransformService;
 	}
 
@@ -47,14 +45,20 @@ public class JobseekerCvManager implements JobseekerCvService {
 	@Override
 	public DataResult<List<JobseekerCvDetailsDto>> getCvDetails(){
 		var cvs=this.jobseekerCvDao.findAll();
-	return new SuccessDataResult<List<JobseekerCvDetailsDto>>(this.modelTransformService.getEntityToDto(cvs,JobseekerCvDetailsDto.class),Messages.DataListed);
+	return new SuccessDataResult<List<JobseekerCvDetailsDto>>(this.modelTransformService.getEntityToDtoList(cvs,JobseekerCvDetailsDto.class),Messages.DataListed);
 		
 	}
 
 	@Override
 	public DataResult<List<JobseekerCvDetailsDto>> getByJobseekerId(int jobseekerId) {
-		var cv=this.jobseekerCvDao.getByJobseekerUserId(jobseekerId);
-		return new SuccessDataResult<List<JobseekerCvDetailsDto>>(this.modelTransformService.getEntityToDto(cv,JobseekerCvDetailsDto.class),Messages.DataListed);
+		var cvs=this.jobseekerCvDao.getByJobseekerUserId(jobseekerId);
+		return new SuccessDataResult<List<JobseekerCvDetailsDto>>(this.modelTransformService.getEntityToDtoList(cvs,JobseekerCvDetailsDto.class),Messages.DataListed);
+	}
+
+	@Override
+	public DataResult<JobseekerCvDetailsDto> getById(int cvId) {
+		var cv=this.jobseekerCvDao.getById(cvId);
+		return new SuccessDataResult<JobseekerCvDetailsDto>(this.modelTransformService.getEntityToDto(cv,JobseekerCvDetailsDto.class),Messages.DataListed);
 	}
 
 }

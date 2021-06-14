@@ -9,6 +9,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Value;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,16 +36,17 @@ public class JobseekerAbility {
 	
 //	@Column(name = "ability_id")
 //	private int abilityId;
-//	
-	//join columns
-	@ManyToOne
-	@JoinColumn(name = "cv_id")
-	@Getter(value = AccessLevel.PRIVATE)
-	JobseekerCv jobseekerCv;
+	
+	//Join columns
 	
 	@ManyToOne
-	@JoinColumn(name="ability_id")
-	Ability ability;
+	@JsonIgnore
+	@JoinColumn(name = "cv_id")
+	private JobseekerCv jobseekerCv;
+	
+	@ManyToOne
+	@JoinColumn(name = "ability_id")
+	private Ability ability;
 	
 	
 }

@@ -11,8 +11,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -62,6 +66,8 @@ public class JobAdversiment {
 	@Column(name="active")
 	private Boolean active=true;
 	
+	
+	//Join Columns
 	@ManyToOne()
 	@JoinColumn(name = "city_id")
 	private City city;
@@ -70,7 +76,7 @@ public class JobAdversiment {
 	@JoinColumn(name="department_id")
 	private Department department;
 	
-	@ManyToOne()
+	@ManyToOne() 
 	@JoinColumn(name="employer_id")
 	private Employer employer;
 	
